@@ -1,36 +1,432 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8" />
-  <title>Ledgerly Privacy Policy</title>
-</head>
-<body>
-  <h1>Ledgerly Privacy Policy</h1>
-  <p>Last Updated: May 15, 2026</p>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <p>
-    Welcome to Ledgerly. Your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your information when you use our mobile application.
-  </p>
+    <title>Ledgerly Privacy Policy</title>
+    <meta
+      name="description"
+      content="Privacy Policy for Ledgerly, an expense tracking and shared balance management app."
+    />
 
-  <h2>Information We Collect</h2>
-  <p>We may collect account information, expense data, group information, device information, crash logs, and app usage data.</p>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
 
-  <h2>How We Use Your Information</h2>
-  <p>We use your information to provide the app, sync expenses, authenticate users, improve app performance, and provide support.</p>
+      :root {
+        --bg: #0f1216;
+        --bg-soft: #171b21;
+        --card: rgba(255, 255, 255, 0.06);
+        --card-strong: rgba(255, 255, 255, 0.09);
+        --border: rgba(255, 255, 255, 0.12);
+        --border-soft: rgba(255, 255, 255, 0.08);
+        --text: rgba(255, 255, 255, 0.94);
+        --muted: rgba(255, 255, 255, 0.66);
+        --faint: rgba(255, 255, 255, 0.46);
+        --accent: #f2b8a2;
+        --accent-soft: rgba(242, 184, 162, 0.14);
+        --green: #7fd8a4;
+        --orange: #f0a36a;
+        --shadow: rgba(0, 0, 0, 0.42);
+      }
 
-  <h2>Data Sharing</h2>
-  <p>We do not sell your personal data. We may share data with service providers required to operate the app or when required by law.</p>
+      html {
+        scroll-behavior: smooth;
+      }
 
-  <h2>Data Storage and Security</h2>
-  <p>Some data may be stored locally on your device. We use reasonable security measures, but no method of transmission or storage is completely secure.</p>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at top left, rgba(242, 184, 162, 0.18), transparent 34%),
+          radial-gradient(circle at bottom right, rgba(127, 216, 164, 0.08), transparent 30%),
+          linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 48%, #090b0e 100%);
+        color: var(--text);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        line-height: 1.65;
+      }
 
-  <h2>Your Rights</h2>
-  <p>You may request access, correction, or deletion of your personal data by contacting us.</p>
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+        background-size: 42px 42px;
+        mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), transparent 72%);
+      }
 
-  <h2>Children's Privacy</h2>
-  <p>Ledgerly is not intended for children under 13. We do not knowingly collect personal information from children.</p>
+      .page {
+        width: min(100%, 960px);
+        margin: 0 auto;
+        padding: 34px 20px 56px;
+        position: relative;
+      }
 
-  <h2>Contact Us</h2>
-  <p>Email: ledgerlysupport@gmail.com</p>
-</body>
+      .hero {
+        padding: 34px 26px;
+        border-radius: 34px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.085), rgba(255, 255, 255, 0.045)),
+          rgba(15, 18, 22, 0.92);
+        border: 1px solid var(--border);
+        box-shadow: 0 28px 90px var(--shadow);
+        backdrop-filter: blur(20px);
+        overflow: hidden;
+        position: relative;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        width: 280px;
+        height: 280px;
+        right: -130px;
+        top: -120px;
+        border-radius: 999px;
+        background: radial-gradient(circle, rgba(242, 184, 162, 0.22), transparent 68%);
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 13px;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        border: 1px solid rgba(242, 184, 162, 0.22);
+        color: var(--accent);
+        font-size: 13px;
+        font-weight: 750;
+        letter-spacing: 0.02em;
+      }
+
+      .brand-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: var(--accent);
+        box-shadow: 0 0 24px rgba(242, 184, 162, 0.7);
+      }
+
+      h1 {
+        margin: 22px 0 10px;
+        font-size: clamp(38px, 7vw, 68px);
+        line-height: 0.95;
+        letter-spacing: -0.075em;
+      }
+
+      .updated {
+        margin: 0;
+        color: var(--faint);
+        font-size: 14px;
+      }
+
+      .intro {
+        max-width: 740px;
+        margin: 22px 0 0;
+        color: var(--muted);
+        font-size: 16px;
+      }
+
+      .nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 18px 0 0;
+      }
+
+      .nav a {
+        color: var(--text);
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 650;
+        padding: 9px 12px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.055);
+        border: 1px solid var(--border-soft);
+      }
+
+      .content {
+        display: grid;
+        gap: 16px;
+        margin-top: 18px;
+      }
+
+      section {
+        padding: 24px;
+        border-radius: 28px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.065), rgba(255, 255, 255, 0.035)),
+          rgba(15, 18, 22, 0.88);
+        border: 1px solid var(--border-soft);
+        box-shadow: 0 16px 46px rgba(0, 0, 0, 0.24);
+        backdrop-filter: blur(16px);
+      }
+
+      h2 {
+        margin: 0 0 10px;
+        font-size: 22px;
+        line-height: 1.2;
+        letter-spacing: -0.035em;
+      }
+
+      p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      p + p {
+        margin-top: 12px;
+      }
+
+      ul {
+        margin: 12px 0 0;
+        padding-left: 20px;
+        color: var(--muted);
+      }
+
+      li {
+        margin: 8px 0;
+      }
+
+      strong {
+        color: rgba(255, 255, 255, 0.9);
+        font-weight: 750;
+      }
+
+      .highlight {
+        color: var(--accent);
+      }
+
+      .contact-card {
+        margin-top: 14px;
+        padding: 16px;
+        border-radius: 20px;
+        background: var(--card-strong);
+        border: 1px solid var(--border);
+      }
+
+      .contact-card a {
+        color: var(--accent);
+        font-weight: 750;
+        text-decoration: none;
+      }
+
+      .footer {
+        margin-top: 22px;
+        padding: 18px 4px 0;
+        color: var(--faint);
+        font-size: 13px;
+        text-align: center;
+      }
+
+      @media (max-width: 640px) {
+        .page {
+          padding: 20px 14px 42px;
+        }
+
+        .hero {
+          padding: 28px 20px;
+          border-radius: 28px;
+        }
+
+        section {
+          padding: 20px;
+          border-radius: 24px;
+        }
+
+        .nav {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="page">
+      <header class="hero">
+        <div class="brand">
+          <span class="brand-dot"></span>
+          Ledgerly
+        </div>
+
+        <h1>Privacy Policy</h1>
+
+        <p class="updated">Last Updated: June 25, 2026</p>
+
+        <p class="intro">
+          Welcome to Ledgerly. Your privacy matters to us. This Privacy Policy explains
+          what information we collect, how we use it, how we protect it, and what choices
+          you have when using the Ledgerly mobile application.
+        </p>
+
+        <nav class="nav" aria-label="Privacy policy sections">
+          <a href="#information">Information</a>
+          <a href="#usage">Usage</a>
+          <a href="#sharing">Sharing</a>
+          <a href="#storage">Storage</a>
+          <a href="#rights">Rights</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+
+      <div class="content">
+        <section id="information">
+          <h2>Information We Collect</h2>
+          <p>
+            Ledgerly may collect information that you provide directly, information created
+            while using the app, and limited technical information needed to keep the app
+            secure and reliable.
+          </p>
+
+          <ul>
+            <li>
+              <strong>Account information:</strong> such as your name, email address, and
+              authentication details.
+            </li>
+            <li>
+              <strong>Expense and balance data:</strong> such as expenses, amounts,
+              categories, notes, groups, settlements, balances, recurring expenses, and
+              related financial records that you choose to enter.
+            </li>
+            <li>
+              <strong>Group information:</strong> such as group names, members, shared
+              expenses, and balances between members.
+            </li>
+            <li>
+              <strong>Device and app information:</strong> such as device type, operating
+              system, app version, crash logs, diagnostics, and usage events.
+            </li>
+            <li>
+              <strong>Support information:</strong> such as messages, screenshots, or
+              details you send to us when requesting help.
+            </li>
+          </ul>
+        </section>
+
+        <section id="usage">
+          <h2>How We Use Your Information</h2>
+          <p>
+            We use your information to operate Ledgerly and provide the features you expect
+            from an expense tracking and shared balance app.
+          </p>
+
+          <ul>
+            <li>To create and manage your Ledgerly account.</li>
+            <li>To save, sync, display, and calculate expenses, balances, and settlements.</li>
+            <li>To support groups, shared expenses, recurring expenses, and personal spending records.</li>
+            <li>To authenticate users and help protect accounts from unauthorized access.</li>
+            <li>To improve app performance, fix bugs, analyze crashes, and understand app usage.</li>
+            <li>To respond to support requests and communicate important service updates.</li>
+          </ul>
+        </section>
+
+        <section id="sharing">
+          <h2>Data Sharing</h2>
+          <p>
+            We do <strong>not</strong> sell your personal data.
+          </p>
+
+          <p>
+            We may share limited information with trusted service providers only when needed
+            to operate, secure, improve, or support Ledgerly. These providers may help with
+            services such as authentication, cloud storage, analytics, crash reporting, and
+            app infrastructure.
+          </p>
+
+          <p>
+            We may also disclose information if required by law, regulation, legal process,
+            or to protect the rights, safety, and security of Ledgerly, our users, or others.
+          </p>
+        </section>
+
+        <section id="storage">
+          <h2>Data Storage and Security</h2>
+          <p>
+            Some Ledgerly data may be stored locally on your device, while other data may be
+            stored using cloud services so that your expenses and balances can sync across
+            sessions and devices.
+          </p>
+
+          <p>
+            We use reasonable administrative, technical, and organizational safeguards to
+            protect your information. However, no method of transmission over the internet
+            or electronic storage is completely secure, and we cannot guarantee absolute
+            security.
+          </p>
+        </section>
+
+        <section id="retention">
+          <h2>Data Retention</h2>
+          <p>
+            We keep your information for as long as necessary to provide Ledgerly, maintain
+            your account, comply with legal obligations, resolve disputes, and enforce our
+            agreements.
+          </p>
+
+          <p>
+            If you request deletion of your account or personal data, we will take reasonable
+            steps to delete or anonymize your information, unless we are required to keep
+            certain data for legal, security, fraud prevention, or legitimate operational
+            reasons.
+          </p>
+        </section>
+
+        <section id="rights">
+          <h2>Your Rights and Choices</h2>
+          <p>
+            Depending on your location, you may have rights to access, correct, update, export,
+            restrict, or delete certain personal information.
+          </p>
+
+          <p>
+            You can contact us to request access, correction, or deletion of your personal
+            data. We may need to verify your identity before completing certain requests.
+          </p>
+        </section>
+
+        <section id="children">
+          <h2>Children's Privacy</h2>
+          <p>
+            Ledgerly is not intended for children under the age of 13. We do not knowingly
+            collect personal information from children under 13. If we become aware that a
+            child has provided personal information, we will take reasonable steps to delete it.
+          </p>
+        </section>
+
+        <section id="changes">
+          <h2>Changes to This Policy</h2>
+          <p>
+            We may update this Privacy Policy from time to time. When we make changes, we
+            will update the “Last Updated” date at the top of this page. Your continued use
+            of Ledgerly after changes are posted means you accept the updated policy.
+          </p>
+        </section>
+
+        <section id="contact">
+          <h2>Contact Us</h2>
+          <p>
+            If you have questions, requests, or concerns about this Privacy Policy or how
+            Ledgerly handles your information, contact us at:
+          </p>
+
+          <div class="contact-card">
+            <strong>Email:</strong>
+            <a href="mailto:ledgerlysupport@gmail.com">ledgerlysupport@gmail.com</a>
+          </div>
+        </section>
+      </div>
+
+      <footer class="footer">
+        © 2026 Ledgerly. All rights reserved.
+      </footer>
+    </main>
+  </body>
 </html>
